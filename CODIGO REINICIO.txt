@@ -1,0 +1,7 @@
+
+CONTROL C PARA APAGAR Y LUEGO EL CODIGO
+
+
+
+
+py -m uvicorn app:app --reload

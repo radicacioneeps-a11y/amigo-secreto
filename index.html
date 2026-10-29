@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigo Secreto Navideño 2026</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14532d 0%, #7f1d1d 100%); color: #f8fafc; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; overflow-x: hidden; }
+        
+        /* Contenedor principal más ancho para dar espacio a fotos más grandes */
+        .layout-principal { display: flex; align-items: center; justify-content: center; gap: 40px; width: 100%; max-width: 1300px; }
+        
+        /* Columnas laterales más anchas */
+        .columna-fotos { display: flex; flex-direction: column; gap: 16px; width: 230px; flex-shrink: 0; }
+        
+        /* Marco de fotos más grande y estilizado */
+        .marco-foto { background: #0f172a; border-radius: 12px; border: 2px solid #facc15; box-shadow: 0 6px 15px rgba(0,0,0,0.6); padding: 8px; text-align: center; transition: transform 0.2s; }
+        .marco-foto:hover { transform: scale(1.03); }
+        
+        .foto-lateral { width: 100%; height: 135px; object-fit: contain; border-radius: 8px; }
+        
+        /* Frases navideñas cortas debajo de cada foto */
+        .frase-foto { font-size: 0.75rem; color: #facc15; font-weight: bold; margin-top: 6px; text-shadow: 0 1px 2px rgba(0,0,0,0.5); font-style: italic; }
+
+        /* Tarjeta Central */
+        .card { background: #1e293b; border-radius: 20px; padding: 28px; width: 100%; max-width: 440px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.7); border: 2px solid #f59e0b; flex-shrink: 0; }
+        .badge { background: #dc2626; color: #ffffff; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; display: inline-block; margin-bottom: 12px; border: 1px solid #f87171; }
+        
+        h1 { color: #facc15; font-size: 1.4rem; margin: 0 0 6px 0; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.4); }
+        .subtitulo { color: #38bdf8; font-size: 0.95rem; font-weight: 600; margin: 0 0 16px 0; }
+        .seccion { background: #0f172a; padding: 16px; border-radius: 12px; margin-bottom: 18px; border: 1px solid #334155; text-align: left; }
+        .seccion h3 { margin: 0 0 8px 0; font-size: 1rem; color: #facc15; text-align: center; }
+        select, textarea, button { width: 100%; padding: 12px; border-radius: 10px; border: none; font-size: 0.95rem; margin-top: 8px; box-sizing: border-box; }
+        select, textarea { background: #334155; color: white; border: 1px solid #64748b; outline: none; }
+        textarea { resize: vertical; min-height: 70px; }
+        button { font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-guardar { background: #0284c7; color: white; }
+        .btn-guardar:hover { background: #0369a1; }
+        .btn-sortear { background: #ca8a04; color: white; font-size: 1.05rem; padding: 14px; }
+        .btn-sortear:hover { background: #a16207; }
+        .btn-sortear:disabled, .btn-guardar:disabled { background: #475569; color: #94a3b8; cursor: not-allowed; }
+        .aviso { color: #f43f5e; font-size: 0.85rem; font-weight: bold; margin-top: 8px; text-align: center; }
+        .resultado { margin-top: 18px; padding: 16px; background: #0f172a; border-radius: 12px; border: 2px dashed #f59e0b; display: none; text-align: center; }
+        .destacado { font-size: 1.4rem; color: #4ade80; font-weight: bold; display: block; margin: 6px 0; }
+        .gustos-box { background: #1e293b; padding: 12px; border-radius: 8px; margin-top: 10px; text-align: left; font-size: 0.9rem; color: #e2e8f0; border-left: 4px solid #38bdf8; }
+        .ayuda-texto { font-size: 0.8rem; color: #94a3b8; margin-bottom: 4px; display: block; }
+
+        @media (max-width: 1000px) {
+            .columna-fotos { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout-principal">
+        <!-- 3 FOTOS DEL LADO IZQUIERDO CON FRASES -->
+        <div class="columna-fotos">
+            <div class="marco-foto">
+                <img src="/static/foto_izq1.jpg" alt="Foto 1" class="foto-lateral" onerror="this.closest('.marco-foto').style.display='none'">
+                <div class="frase-foto">🎄 Magia en Familia 🌟</div>
+            </div>
+            <div class="marco-foto">
+                <img src="/static/foto_izq2.jpg" alt="Foto 2" class="foto-lateral" onerror="this.closest('.marco-foto').style.display='none'">
+                <div class="frase-foto">🎁 Alegría y Unión ✨</div>
+            </div>
+            <div class="marco-foto">
+                <img src="/static/foto_izq3.jpg" alt="Foto 3" class="foto-lateral" onerror="this.closest('.marco-foto').style.display='none'">
+                <div class="frase-foto">🎅 Risas y Amor ❤️</div>
+            </div>
+        </div>
+
+        <!-- TARJETA CENTRAL -->
+        <div class="card">
+            <span class="badge">🎄 Edición Especial Navideña 2026 🎅</span>
+            <h1>Amigo Secreto Navideño</h1>
+            <div class="subtitulo">✨ ¡Una Navidad más en Familia! 🎁</div>
+
+            <div style="text-align: left; margin-bottom: 12px;">
+                <label style="font-size: 0.9rem; color: #cbd5e1; font-weight: bold;">1. Selecciona tu nombre:</label>
+                <select id="selectUsuario" onchange="cargarGustosPropios()">
+                    <option value="">-- Selecciona tu nombre --</option>
+                </select>
+            </div>
+
+            <div class="seccion">
+                <h3>📝 Paso 1: Mis Gustos y Tallas</h3>
+                <span class="ayuda-texto" id="lblAyuda">💡 Escribe tus tallas, colores favoritos o qué te gustaría recibir:</span>
+                <textarea id="txtGustos" placeholder="Escribe aquí tus gustos, tallas o preferencias..."></textarea>
+                <button id="btnGuardar" class="btn-guardar" onclick="guardarMisGustos()">💾 Guardar Mis Gustos</button>
+            </div>
+
+            <div class="seccion">
+                <h3>🎲 Paso 2: Tu Amigo Secreto</h3>
+                <button id="btnSortear" class="btn-sortear" onclick="sacarAmigo()">✨ Descubrir Mi Amigo Secreto</button>
+                <div id="msgBloqueo" class="aviso" style="display: none;">🔒 Sorteo bloqueado hasta la fecha oficial.</div>
+            </div>
+
+            <div id="boxResultado" class="resultado">
+                <span id="txtInfo" style="color: #cbd5e1; font-weight: 500;">Tu amigo secreto es:</span>
+                <span id="txtAmigo" class="destacado"></span>
+                
+                <div class="gustos-box">
+                    <strong>📝 Sus gustos y tallas:</strong>
+                    <p id="txtGustosAmigo" style="margin: 4px 0 0 0; white-space: pre-wrap;"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 FOTOS DEL LADO DERECHO CON FRASES -->
+        <div class="columna-fotos">
+            <div class="marco-foto">
+                <img src="/static/foto_der1.jpg" alt="Foto 4" class="foto-lateral" onerror="this.closest('.marco-foto').style.display='none'">
+                <div class="frase-foto">⭐ Paz y Armonía 🕊️</div>
+            </div>
+            <div class="marco-foto">
+                <img src="/static/foto_der2.jpg" alt="Foto 5" class="foto-lateral" onerror="this.closest('.marco-foto').style.display='none'">
+                <div class="frase-foto">🎁 El mejor regalo es estar juntos 🎄</div>
+            </div>
+            <div class="marco-foto">
+                <img src="/static/foto_der3.jpg" alt="Foto 6" class="foto-lateral" onerror="this.closest('.marco-foto').style.display='none'">
+                <div class="frase-foto">✨ ¡Feliz Navidad! 🎅</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let sorteoHabilitado = false;
+
+        async function cargarEstado() {
+            try {
+                const res = await fetch('/api/estado');
+                const data = await res.json();
+                
+                const select = document.getElementById('selectUsuario');
+                select.innerHTML = '<option value="">-- Selecciona tu nombre --</option>';
+                data.participantes.forEach(nombre => {
+                    const opt = document.createElement('option');
+                    opt.value = nombre;
+                    opt.textContent = nombre;
+                    select.appendChild(opt);
+                });
+
+                sorteoHabilitado = data.sorteo_habilitado;
+                const btn = document.getElementById('btnSortear');
+                const msg = document.getElementById('msgBloqueo');
+
+                if (!sorteoHabilitado) {
+                    btn.disabled = true;
+                    msg.style.display = 'block';
+                    msg.textContent = `🔒 El sorteo se habilitará automáticamente el: ${data.fecha_desbloqueo}`;
+                } else {
+                    btn.disabled = false;
+                    msg.style.display = 'none';
+                }
+            } catch (e) {
+                console.error("Error cargando estado", e);
+            }
+        }
+
+        async function cargarGustosPropios() {
+            const nombre = document.getElementById('selectUsuario').value;
+            const txtArea = document.getElementById('txtGustos');
+            const btnGuardar = document.getElementById('btnGuardar');
+            const lblAyuda = document.getElementById('lblAyuda');
+
+            if(!nombre) {
+                txtArea.value = '';
+                txtArea.disabled = false;
+                btnGuardar.style.display = 'block';
+                lblAyuda.textContent = "💡 Escribe tus tallas, colores favoritos o qué te gustaría recibir:";
+                return;
+            }
+
+            const res = await fetch(`/api/gustos/${nombre}`);
+            const data = await res.json();
+            
+            txtArea.value = data.gustos || '';
+
+            if (data.ya_guardado) {
+                txtArea.disabled = true;
+                btnGuardar.style.display = 'none';
+                lblAyuda.textContent = "✅ Ya registraste tus gustos y tallas (No se pueden modificar):";
+            } else {
+                txtArea.disabled = false;
+                btnGuardar.style.display = 'block';
+                lblAyuda.textContent = "💡 Escribe tus tallas, colores favoritos o qué te gustaría recibir:";
+            }
+        }
+
+        async function guardarMisGustos() {
+            const nombre = document.getElementById('selectUsuario').value;
+            const gustos = document.getElementById('txtGustos').value;
+
+            if(!nombre) { alert("Por favor selecciona tu nombre primero."); return; }
+            if(!gustos.trim()) { alert("Por favor escribe tus gustos o tallas antes de guardar."); return; }
+
+            const res = await fetch('/api/guardar-gustos', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ nombre, gustos })
+            });
+
+            if(res.ok) {
+                alert("¡Tus gustos y tallas han sido guardados con éxito y ya quedaron fijos! 🎉");
+                document.getElementById('txtGustos').value = ``;
+                cargarGustosPropios();
+            } else {
+                const err = await res.json();
+                alert(err.detail);
+            }
+        }
+
+        async function sacarAmigo() {
+            const nombre = document.getElementById('selectUsuario').value;
+            if(!nombre) { alert("Por favor selecciona tu nombre primero."); return; }
+
+            const res = await fetch('/api/sortear', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ nombre })
+            });
+
+            if(!res.ok) {
+                const err = await res.json();
+                alert(err.detail);
+                return;
+            }
+
+            const data = await res.json();
+            const box = document.getElementById('boxResultado');
+            const txtInfo = document.getElementById('txtInfo');
+            const txtAmigo = document.getElementById('txtAmigo');
+            const txtGustosAmigo = document.getElementById('txtGustosAmigo');
+
+            if(data.repetido) {
+                txtInfo.textContent = "Ya habías descubierto tu resultado:";
+            } else {
+                txtInfo.textContent = "🎁 ¡Te tocó regalarle a:";
+            }
+
+            txtAmigo.textContent = data.amigo_secreto;
+            txtGustosAmigo.textContent = data.gustos_amigo || "Esta persona aún no ha detallado sus gustos.";
+            box.style.display = 'block';
+        }
+
+        cargarEstado();
+    </script>
+</body>
+</html>
