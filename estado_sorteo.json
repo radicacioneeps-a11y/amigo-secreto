@@ -2,14 +2,14 @@
     "participantes": [
         "LUZ MARINA", "RICARDO", "ALBEIRO", "VICTORIA", "BRUNO", 
         "LIA", "LUISA", "CARLOS", "DIVA", "PAULINA", 
-        "ESPERANZA", "CONSUELO", "CILIO", "LUCIANA", "ANDRES", 
+        "ESPERANZA", "CONSUELO", "LUCIANA", "ANDRES", 
         "RUBY", "CAROLINA", "GUILLERMO", "JULIANA", "FELIPE", 
         "ANA", "CRISTIAN", "LAURA", "ALMA", "ZOE"
     ],
     "disponibles": [
         "LUZ MARINA", "RICARDO", "ALBEIRO", "VICTORIA", "BRUNO", 
         "LIA", "LUISA", "CARLOS", "DIVA", "PAULINA", 
-        "ESPERANZA", "CONSUELO", "CILIO", "LUCIANA", "ANDRES", 
+        "ESPERANZA", "CONSUELO", "LUCIANA", "ANDRES", 
         "RUBY", "CAROLINA", "GUILLERMO", "JULIANA", "FELIPE", 
         "ANA", "CRISTIAN", "LAURA", "ALMA", "ZOE"
     ],
@@ -26,7 +26,6 @@
         "PAULINA": "1483",
         "ESPERANZA": "8950",
         "CONSUELO": "4216",
-        "CILIO": "7539",
         "LUCIANA": "6028",
         "ANDRES": "3914",
         "RUBY": "8247",
@@ -44,7 +43,7 @@
     "gustos": {
         "LUZ MARINA": "", "RICARDO": "", "ALBEIRO": "", "VICTORIA": "", "BRUNO": "",
         "LIA": "", "LUISA": "", "CARLOS": "", "DIVA": "", "PAULINA": "",
-        "ESPERANZA": "", "CONSUELO": "", "CILIO": "", "LUCIANA": "", "ANDRES": "",
+        "ESPERANZA": "", "CONSUELO": "", "LUCIANA": "", "ANDRES": "",
         "RUBY": "", "CAROLINA": "", "GUILLERMO": "", "JULIANA": "", "FELIPE": "",
         "ANA": "", "CRISTIAN": "", "LAURA": "", "ALMA": "", "ZOE": ""
     }
