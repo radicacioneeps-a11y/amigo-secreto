@@ -14,7 +14,7 @@ app.mount("/static", StaticFiles(directory="."), name="static")
 
 DATA_FILE = "estado_sorteo.json"
 
-# FECHA Y HORA DE DESBLOQUEO: 5 de Noviembre de 2026 a las 4:00 PM (16:00 hs)
+# FECHA Y HORA DE DESBLOQUEO: 5 de Octubre de 2026 a las 4:00 PM (16:00 hs)
 FECHA_DESBLOQUEO = datetime(2026, 10, 5, 16, 0, 0)
 
 def cargar_estado():
