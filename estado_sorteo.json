@@ -26,35 +26,8 @@
         "ALMA",
         "ZOE"
     ],
-    "disponibles": [
-        "LUZ MARINA",
-        "ALBEIRO",
-        "VICTORIA",
-        "BRUNO",
-        "LIA",
-        "LUISA",
-        "CARLOS",
-        "DIVA",
-        "PAULINA",
-        "ESPERANZA",
-        "CONSUELO",
-        "CILIO",
-        "LUCIANA",
-        "ANDRES",
-        "CAROLINA",
-        "GUILLERMO",
-        "JULIANA",
-        "FELIPE",
-        "ANA",
-        "CRISTIAN",
-        "LAURA",
-        "ZOE"
-    ],
-    "asignaciones": {
-        "CARLOS": "ALMA",
-        "LUISA": "RUBY",
-        "GUILLERMO": "RICARDO"
-    },
+    "disponibles": [],
+    "asignaciones": {},
     "gustos": {
         "LUZ MARINA": "",
         "RICARDO": "",
