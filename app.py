@@ -9,7 +9,7 @@ from pydantic import BaseModel
 
 app = FastAPI(title="El Sorteo del Terror Navideño")
 
-# Permitir leer archivos estáticos (como fotos) desde la carpeta actual AS
+# Permitir leer archivos estáticos (como fotos) desde la carpeta actual
 app.mount("/static", StaticFiles(directory="."), name="static")
 
 DATA_FILE = "estado_sorteo.json"
@@ -30,7 +30,8 @@ def cargar_estado():
             "participantes": participantes,
             "disponibles": participantes.copy(),
             "asignaciones": {},
-            "gustos": {p: "" for p in participantes}
+            "gustos": {p: "" for p in participantes},
+            "pines": {}
         }
         guardar_estado(data)
         return data
@@ -44,9 +45,11 @@ def guardar_estado(data):
 class PeticionGustos(BaseModel):
     nombre: str
     gustos: str
+    pin: str
 
 class PeticionSorteo(BaseModel):
     nombre: str
+    pin: str
 
 # Redirigir la raíz al nuevo enlace personalizado
 @app.get("/")
@@ -56,10 +59,13 @@ def raiz_redireccion():
 # Nueva ruta con el nombre personalizado
 @app.get("/amigo-secreto-navideno-2026", response_class=HTMLResponse)
 def leer_raiz():
-    if os.path.exists("index.html"):
+    if os.path.exists("índice.html"):
+        with open("índice.html", "r", encoding="utf-8") as f:
+            return f.read()
+    elif os.path.exists("index.html"):
         with open("index.html", "r", encoding="utf-8") as f:
             return f.read()
-    return "<h1>Falta el archivo index.html en la carpeta AS</h1>"
+    return "<h1>Falta el archivo índice.html en la carpeta</h1>"
 
 @app.get("/api/estado")
 def obtener_estado():
@@ -90,12 +96,18 @@ def guardar_gustos(peticion: PeticionGustos):
     if nombre not in data["participantes"]:
         raise HTTPException(status_code=400, detail="Usuario no registrado.")
     
+    # Validar PIN individual
+    pines = data.get("pines", {})
+    pin_correcto = pines.get(nombre)
+    if pin_correcto and peticion.pin.strip() != pin_correcto:
+        raise HTTPException(status_code=400, detail="PIN incorrecto. Verifica tu clave de 4 dígitos.")
+
     if "gustos" not in data:
         data["gustos"] = {}
         
     gustos_existentes = data["gustos"].get(nombre, "").strip()
     if gustos_existentes:
-        raise HTTPException(status_code=400, detail="¡Tú ya registraste tus gustos anteriormente y no se pueden modificar!")
+        raise HTTPException(status_code=400, detail="¡Tú ya registraste tus gustos anteriormente y não se pueden modificar!")
 
     data["gustos"][nombre] = peticion.gustos.strip()
     guardar_estado(data)
@@ -112,6 +124,12 @@ def realizar_sorteo(peticion: PeticionSorteo):
 
     if usuario not in data["participantes"]:
         raise HTTPException(status_code=400, detail="Usuario no registrado.")
+
+    # Validar PIN individual
+    pines = data.get("pines", {})
+    pin_correcto = pines.get(usuario)
+    if pin_correcto and peticion.pin.strip() != pin_correcto:
+        raise HTTPException(status_code=400, detail="PIN incorrecto. No puedes ver la asignación de otra persona.")
 
     if usuario in data["asignaciones"]:
         amigo = data["asignaciones"][usuario]
