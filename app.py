@@ -76,7 +76,7 @@ def obtener_estado():
     return {
         "participantes": data["participantes"],
         "sorteo_habilitado": sorteo_habilitado,
-        "fecha_desbloqueo": "5 de Noviembre de 2026 a las 4:00 PM"
+        "fecha_desbloqueo": "4 de Noviembre de 2026 a las 6:00 AM"
     }
 
 @app.get("/api/gustos/{nombre}")
