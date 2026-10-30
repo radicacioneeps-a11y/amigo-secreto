@@ -82,15 +82,21 @@
                 </select>
             </div>
 
+            <!-- CAMPO DE PIN INDIVIDUAL AGREGADO -->
+            <div style="text-align: left; margin-bottom: 12px;">
+                <label for="txtPin" style="font-size: 0.9rem; color: #cbd5e1; font-weight: bold;">🔑 Ingresa tu PIN de 4 dígitos:</label>
+                <input type="password" id="txtPin" maxlength="4" placeholder="****" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #64748b; background: #334155; color: white; font-size: 1.1rem; text-align: center; margin-top: 8px; box-sizing: border-box;" />
+            </div>
+
             <div class="seccion">
-                <h3>📝 Paso 1: Mis Gustos y Tallas</h3>
+                <h3>📝 Mis Gustos y Tallas</h3>
                 <span class="ayuda-texto" id="lblAyuda">💡 Escribe tus tallas, colores favoritos o qué te gustaría recibir:</span>
                 <textarea id="txtGustos" placeholder="Escribe aquí tus gustos, tallas o preferencias..."></textarea>
                 <button id="btnGuardar" class="btn-guardar" onclick="guardarMisGustos()">💾 Guardar Mis Gustos</button>
             </div>
 
             <div class="seccion">
-                <h3>🎲 Paso 2: Tu Amigo Secreto</h3>
+                <h3>🎲 Tu Amigo Secreto</h3>
                 <button id="btnSortear" class="btn-sortear" onclick="sacarAmigo()">✨ Descubrir Mi Amigo Secreto</button>
                 <div id="msgBloqueo" class="aviso" style="display: none;">🔒 Sorteo bloqueado hasta la fecha oficial.</div>
             </div>
@@ -190,14 +196,16 @@
         async function guardarMisGustos() {
             const nombre = document.getElementById('selectUsuario').value;
             const gustos = document.getElementById('txtGustos').value;
+            const pin = document.getElementById('txtPin').value;
 
             if(!nombre) { alert("Por favor selecciona tu nombre primero."); return; }
+            if(!pin || pin.length !== 4) { alert("Por favor ingresa tu PIN de 4 dígitos."); return; }
             if(!gustos.trim()) { alert("Por favor escribe tus gustos o tallas antes de guardar."); return; }
 
             const res = await fetch('/api/guardar-gustos', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ nombre, gustos })
+                body: JSON.stringify({ nombre, gustos, pin })
             });
 
             if(res.ok) {
@@ -212,12 +220,15 @@
 
         async function sacarAmigo() {
             const nombre = document.getElementById('selectUsuario').value;
+            const pin = document.getElementById('txtPin').value;
+
             if(!nombre) { alert("Por favor selecciona tu nombre primero."); return; }
+            if(!pin || pin.length !== 4) { alert("Por favor ingresa tu PIN de 4 dígitos para descubrir tu amigo secreto."); return; }
 
             const res = await fetch('/api/sortear', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ nombre })
+                body: JSON.stringify({ nombre, pin })
             });
 
             if(!res.ok) {
